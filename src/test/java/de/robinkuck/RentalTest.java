@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class RentalTest {
 
-    Movie movie = new Movie("Test movie", new RegularPrice());
+    private Movie movie = new Movie("Test movie", new RegularPrice());
 
     @Test
     public void testGetDaysRented() {
