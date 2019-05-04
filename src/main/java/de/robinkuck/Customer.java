@@ -23,7 +23,7 @@ class Customer {
         while (enum_rentals.hasMoreElements()) {
             Rental each = (Rental) enum_rentals.nextElement();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(each.getCharge()) + "\n";
+            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(each.getMovie().getCharge(each.getDaysRented())) + "\n";
         }
         //add footer lines
         result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
@@ -36,7 +36,7 @@ class Customer {
         String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each.getMovie().getTitle() + ": " + each.getCharge() + "<BR>\n";
+            result += each.getMovie().getTitle() + ": " + each.getMovie().getCharge(each.getDaysRented()) + "<BR>\n";
         }
         result += "<P>You owe <EM>" + getTotalCharge() + "</EM><P>\n";
         result += "You earned <EM>" + getTotalFrequentRenterPoints() + "</EM> frequent renter points<P>";
@@ -48,7 +48,7 @@ class Customer {
         Enumeration rentals = this.rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each.getCharge();
+            result += each.getMovie().getCharge(each.getDaysRented());
         }
         return result;
     }
@@ -58,7 +58,7 @@ class Customer {
         Enumeration rentals = this.rentals.elements();
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            result += each.getFrequentRenterPoints();
+            result += each.getMovie().getFrequentRenterPoints(each.getDaysRented());
         }
         return result;
     }

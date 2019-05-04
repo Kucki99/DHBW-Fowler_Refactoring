@@ -57,7 +57,7 @@ public class CustomerTest {
         customer.addRental(rental2);
         customer.addRental(rental3);
 
-        Assert.assertEquals("Rental Record for Test customer\n" +
+        Assert.assertEquals("Rentals for Test customer\n" +
                 "\tTitle\t\tDays\tAmount\n" +
                 "\tTest movie 1\t\t10\t14.0\n" +
                 "\tTest movie 2\t\t11\t33.0\n" +
