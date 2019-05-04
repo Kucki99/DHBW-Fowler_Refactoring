@@ -20,11 +20,25 @@ public class CustomerTest {
         Customer customer = new Customer("Test customer");
         customer.addRental(rental);
 
-        Assert.assertEquals("Rental Record for Test customer\n" +
+        Assert.assertEquals("Rentals for Test customer\n" +
                 "\tTitle\t\tDays\tAmount\n" +
                 "\tTest movie\t\t10\t14.0\n" +
                 "Amount owed is 14.0\n" +
                 "You earned 1 frequent renter points", customer.statement());
+    }
+
+    @Test
+    public void testHtmlStatement() {
+        Movie movie = new Movie("Test movie", Movie.REGULAR);
+        Rental rental = new Rental(movie, 10);
+
+        Customer customer = new Customer("Test customer");
+        customer.addRental(rental);
+
+        Assert.assertEquals("<H1>Rentals for <EM>Test customer</EM></H1><P>\n" +
+                "Test movie: 14.0<BR>\n" +
+                "<P>You owe <EM>14.0</EM><P>\n" +
+                "You earned <EM>1</EM> frequent renter points<P>", customer.htmlStatement());
     }
 
     @Test
