@@ -6,6 +6,13 @@ import org.junit.Test;
 public class CustomerTest {
 
     @Test
+    public void testGetName() {
+        Customer customer = new Customer("Test customer");
+
+        Assert.assertEquals("Test customer", customer.getName());
+    }
+
+    @Test
     public void testStatementOutput() {
         Movie movie = new Movie("Test movie", Movie.REGULAR);
         Rental rental = new Rental(movie, 10);
