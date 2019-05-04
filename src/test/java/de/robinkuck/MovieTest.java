@@ -7,20 +7,22 @@ public class MovieTest {
 
     @Test
     public void testGetPriceCode() {
-        Movie movie = new Movie("Test movie", Movie.REGULAR);
-        Assert.assertEquals(Movie.REGULAR, movie.getPriceCode());
+        Price price = new RegularPrice();
+        Movie movie = new Movie("Test movie", price);
+        Assert.assertEquals(price, movie.getPrice());
     }
 
     @Test
     public void testSetPriceCode() {
-        Movie movie = new Movie("Test movie", Movie.REGULAR);
-        movie.setPriceCode(Movie.NEW_RELEASE);
-        Assert.assertEquals(Movie.NEW_RELEASE, movie.getPriceCode());
+        Movie movie = new Movie("Test movie", new RegularPrice());
+        Price price = new NewReleasePrice();
+        movie.setPrice(price);
+        Assert.assertEquals(price, movie.getPrice());
     }
 
     @Test
     public void testGetTitle() {
-        Movie movie = new Movie("Test movie", Movie.REGULAR);
+        Movie movie = new Movie("Test movie", new RegularPrice());
         Assert.assertEquals("Test movie", movie.getTitle());
     }
 

@@ -14,7 +14,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement() {
-        Movie movie = new Movie("Test movie", Movie.REGULAR);
+        Movie movie = new Movie("Test movie", new RegularPrice());
         Rental rental = new Rental(movie, 10);
 
         Customer customer = new Customer("Test customer");
@@ -29,7 +29,7 @@ public class CustomerTest {
 
     @Test
     public void testHtmlStatement() {
-        Movie movie = new Movie("Test movie", Movie.REGULAR);
+        Movie movie = new Movie("Test movie", new RegularPrice());
         Rental rental = new Rental(movie, 10);
 
         Customer customer = new Customer("Test customer");
@@ -43,13 +43,13 @@ public class CustomerTest {
 
     @Test
     public void testStatementForAllPriceCodes() {
-        Movie movie1 = new Movie("Test movie 1", Movie.REGULAR);
+        Movie movie1 = new Movie("Test movie 1", new RegularPrice());
         Rental rental1 = new Rental(movie1, 10);
 
-        Movie movie2 = new Movie("Test movie 2", Movie.NEW_RELEASE);
+        Movie movie2 = new Movie("Test movie 2", new NewReleasePrice());
         Rental rental2 = new Rental(movie2, 11);
 
-        Movie movie3 = new Movie("Test movie 3", Movie.CHILDRENS);
+        Movie movie3 = new Movie("Test movie 3", new ChildrensPrice());
         Rental rental3 = new Rental(movie3, 12);
 
         Customer customer = new Customer("Test customer");
